@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesys AI Case Studies - Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .moksa-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .moksa-header h2 {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .moksa-header p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        /* 2 cards per row */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--card-color-1), var(--card-color-2));
+        }
+
+        .case-card.case-4 { --card-color-1:#667eea; --card-color-2:#764ba2; }
+        .case-card.case-5 { --card-color-1:#a8edea; --card-color-2:#fed6e3; }
+        .case-card.case-6 { --card-color-1:#f093fb; --card-color-2:#f5576c; }
+        .case-card.case-7 { --card-color-1:#fa709a; --card-color-2:#fee140; }
+        .case-card.case-8 { --card-color-1:#4facfe; --card-color-2:#00f2fe; }
+
+        .case-number {
+            font-size: 0.9em;
+            color: #718096;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .case-title {
+            font-size: 1.8em;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .case-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .case-tech {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-label {
+            font-size: 0.85em;
+            color: #718096;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tech-items {
+            color: #2d3748;
+            font-size: 0.95em;
+        }
+
+        .case-stat {
+            background: linear-gradient(90deg, var(--card-color-1), var(--card-color-2));
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+        }
+
+        .view-button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, var(--card-color-1), var(--card-color-2));
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+        }
+        .home-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #5b8cff, #7b5bff);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="home-button">← Back to Home</a>
+    
+<div class="container">
+
+    
+<div class="container">
+
+    <div class="moksa-header">
+        <h2>MokSa Technologies</h2>
+        <p>Genesys Cloud Gold Partner</p>
+    </div>
+
+    <div class="header">
+        <h1>Genesys AI Case Studies</h1>
+        <p>Transforming Customer Experience with Artificial Intelligence</p>
+    </div>
+
+    <div class="case-studies-grid">
+
+        <!-- Case 1 -->
+        <div class="case-card case-4">
+            <div class="case-number">Case Study 1</div>
+            <div class="case-title">Negative Sentiment Callback Automation</div>
+            <div class="case-description">
+                Real-time sentiment detection triggers automated callbacks.
+                <br><br><strong>MokSa Contribution:</strong> Implemented sentiment-triggered workflows and escalation logic.
+            </div>
+            <div class="case-tech">
+                <div class="tech-label">Key Technologies</div>
+                <div class="tech-items">Sentiment Analysis • Architect • Data Actions</div>
+            </div>
+            <div class="case-stat">
+                <div class="stat-value">Up to 30%</div>
+                <div class="stat-label">Cost Reduction (Gartner)</div>
+            </div>
+            <a href="case-study-1-sentiment-callback.html" class="view-button">View Flow Diagram →</a>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case-card case-5">
+            <div class="case-number">Case Study 2</div>
+            <div class="case-title">Agent Co-Pilot Assistance</div>
+            <div class="case-description">
+                Real-time agent guidance and automated summaries.
+                <br><br><strong>MokSa Contribution:</strong> Deployed Co-Pilot and wrap-up automation.
+            </div>
+            <div class="case-tech">
+                <div class="tech-label">Key Technologies</div>
+                <div class="tech-items">Agent Co-Pilot • Transcription • AI Summaries</div>
+            </div>
+            <div class="case-stat">
+                <div class="stat-value">30–35%</div>
+                <div class="stat-label">AHT Reduction (Deloitte)</div>
+            </div>
+            <a href="case-study-2-agent-copilot.html" class="view-button">View Flow Diagram →</a>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="case-card case-6">
+            <div class="case-number">Case Study 3</div>
+            <div class="case-title">AI Virtual Agent for Banking</div>
+            <div class="case-description">
+                Multilingual virtual agent for routine banking queries.
+                <br><br><strong>MokSa Contribution:</strong> Designed virtual agent and escalation flows.
+            </div>
+            <div class="case-tech">
+                <div class="tech-label">Key Technologies</div>
+                <div class="tech-items">Virtual Agent • NLU • AI Guide • Callback</div>
+            </div>
+            <div class="case-stat">
+                <div class="stat-value">Up to 80%</div>
+                <div class="stat-label">Query Automation (Gartner)</div>
+            </div>
+            <a href="case-study-3-virtual-agent.html" class="view-button">View Flow Diagram →</a>
+        </div>
+
+        <!-- Case 4 -->
+        <div class="case-card case-4">
+            <div class="case-number">Case Study 4</div>
+            <div class="case-title">AI Email Bot Automation</div>
+            <div class="case-description">
+                Automating inbound emails with AI intent detection.
+                <br><br><strong>MokSa Contribution:</strong> Implemented email bot and escalation logic.
+            </div>
+            <div class="case-tech">
+                <div class="tech-label">Key Technologies</div>
+                <div class="tech-items">Email Bot • Intent Detection • Intent Miner</div>
+            </div>
+            <div class="case-stat">
+                <div class="stat-value">20–30%</div>
+                <div class="stat-label">Cost Reduction (Forrester)</div>
+            </div>
+            <a href="genesys-email-bot-flow.html" class="view-button">View Flow Diagram →</a>
+        </div>
+
+        <!-- Case 5 -->
+        <div class="case-card case-5">
+            <div class="case-number">Case Study 5</div>
+            <div class="case-title">AI Workforce Optimization</div>
+            <div class="case-description">
+                AI-based forecasting, scheduling, and onboarding.
+                <br><br><strong>MokSa Contribution:</strong> Configured forecasting and dashboards.
+            </div>
+            <div class="case-tech">
+                <div class="tech-label">Key Technologies</div>
+                <div class="tech-items">AI Forecasting • Scheduling • Dashboards</div>
+            </div>
+            <div class="case-stat">
+                <div class="stat-value">Up to 25%</div>
+                <div class="stat-label">Onboarding Cost Reduction</div>
+            </div>
+            <a href="case-study-5-workforce-optimization.html" class="view-button">View Flow Diagram →</a>
+        </div>
+
+        <!-- Case 6 -->
+        <div class="case-card case-6">
+            <div class="case-number">Case Study 6</div>
+            <div class="case-title">Proactive AI Engagement</div>
+            <div class="case-description">
+                Event-driven proactive customer outreach.
+                <br><br><strong>MokSa Contribution:</strong> Designed event-triggered workflows.
+            </div>
+            <div class="case-tech">
+                <div class="tech-label">Key Technologies</div>
+                <div class="tech-items">Intent Recognition • Event Triggers • Personalization</div>
+            </div>
+            <div class="case-stat">
+                <div class="stat-value">10–15%</div>
+                <div class="stat-label">Revenue Increase</div>
+            </div>
+            <a href="case-study-6-proactive-engagement.html" class="view-button">View Flow Diagram →</a>
+        </div>
+
+        <!-- Case 7 -->
+        <div class="case-card case-7">
+            <div class="case-number">Case Study 7</div>
+            <div class="case-title">AHT Optimization with AI</div>
+            <div class="case-description">
+                AI assistance reduces manual steps.
+                <br><br><strong>MokSa Contribution:</strong> Deployed Co-Pilot and summaries.
+            </div>
+            <div class="case-tech">
+                <div class="tech-label">Key Technologies</div>
+                <div class="tech-items">Co-Pilot • Intent Detection • Guidance</div>
+            </div>
+            <div class="case-stat">
+                <div class="stat-value">30–35%</div>
+                <div class="stat-label">AHT Reduction</div>
+            </div>
+            <a href="case-study-7-aht-optimization.html" class="view-button">View Flow Diagram →</a>
+        </div>
+
+        <!-- Case 8 -->
+        <div class="case-card case-8">
+            <div class="case-number">Case Study 8</div>
+            <div class="case-title">Reducing Repeat Calls</div>
+            <div class="case-description">
+                AI provides full interaction context.
+                <br><br><strong>MokSa Contribution:</strong> Implemented unified context and Co-Pilot guidance.
+            </div>
+            <div class="case-tech">
+                <div class="tech-label">Key Technologies</div>
+                <div class="tech-items">Co-Pilot • Intent Prediction • Unified Data</div>
+            </div>
+            <div class="case-stat">
+                <div class="stat-value">20–30%</div>
+                <div class="stat-label">Repeat Call Reduction</div>
+            </div>
+            <a href="case-study-8-repeat-calls.html" class="view-button">View Flow Diagram →</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <h3>About Genesys AI Solutions</h3>
+        <p>
+            Genesys Cloud combines native AI capabilities with partner integrations to deliver comprehensive
+            customer experience automation backed by industry research.
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
