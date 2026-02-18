@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MokSa Case Studies - Enterprise CX Transformation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #5b6ef5;
+  --primary-dark: #4a5ce6;
+  --primary-light: #7c8cff;
+  --accent: #00e5b8;
+  --accent-2: #ff6b9d;
+  --bg: #f8f9fe;
+  --surface: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --gradient-6: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+  --radius: 24px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HEADER */
+.header {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(91,110,245,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.header img { height: 48px; }
+.header-nav { display: flex; gap: 12px; }
+.header a {
+  font-size: 0.88em;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.header a:hover { background: rgba(91,110,245,0.1); transform: translateY(-1px); }
+.header a.back::before { content: '←'; font-size: 1.2em; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 100px 24px 90px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 100%, rgba(0,229,184,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 70% 0%, rgba(255,255,255,0.1) 0%, transparent 50%);
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(2.2em, 6vw, 3.8em);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+  line-height: 1.1;
+}
+.hero p {
+  font-size: 1.15em;
+  color: rgba(255,255,255,0.9);
+  max-width: 680px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 70px 24px 90px;
+}
+
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+.section-label {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(91,110,245,0.1), rgba(118,75,162,0.1));
+  color: var(--primary);
+  font-size: 0.7em;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.section-header h2 {
+  font-size: 2.2em;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.section-header p {
+  font-size: 1.05em;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* MARQUEE GRID */
+.marquee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 90px;
+}
+.marquee-card {
+  background: white;
+  padding: 36px 30px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.marquee-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.marquee-card:nth-child(1)::before { background: var(--gradient-1); }
+.marquee-card:nth-child(2)::before { background: var(--gradient-2); }
+.marquee-card:nth-child(3)::before { background: var(--gradient-3); }
+.marquee-card:nth-child(4)::before { background: var(--gradient-4); }
+.marquee-card:nth-child(5)::before { background: var(--gradient-5); }
+.marquee-card:nth-child(6)::before { background: var(--gradient-6); }
+.marquee-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(91,110,245,0.15);
+}
+.marquee-card:hover::before { opacity: 1; }
+.marquee-number {
+  font-size: 2.5em;
+  font-weight: 900;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.marquee-card:nth-child(1) .marquee-number { background: var(--gradient-1); -webkit-background-clip: text; background-clip: text; }
+.marquee-card:nth-child(2) .marquee-number { background: var(--gradient-2); -webkit-background-clip: text; background-clip: text; }
+.marquee-card:nth-child(3) .marquee-number { background: var(--gradient-3); -webkit-background-clip: text; background-clip: text; }
+.marquee-card:nth-child(4) .marquee-number { background: var(--gradient-4); -webkit-background-clip: text; background-clip: text; }
+.marquee-card:nth-child(5) .marquee-number { background: var(--gradient-5); -webkit-background-clip: text; background-clip: text; }
+.marquee-card:nth-child(6) .marquee-number { background: var(--gradient-6); -webkit-background-clip: text; background-clip: text; }
+.marquee-card h3 {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+.marquee-card p {
+  font-size: 0.93em;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* CASE GRID */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* CASE CARD */
+.case-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 0;
+  box-shadow: var(--shadow-md);
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  animation: fadeUp 0.6s ease both;
+}
+.case-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(91,110,245,0.2);
+}
+
+.case-header {
+  padding: 40px 40px 32px;
+  background: linear-gradient(135deg, rgba(91,110,245,0.03), rgba(118,75,162,0.03));
+  border-bottom: 2px solid #f8f9fe;
+  position: relative;
+}
+.case-badge {
+  display: inline-block;
+  font-size: 0.65em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(91,110,245,0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.case-header h3 {
+  font-size: 1.65em;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.case-header p {
+  font-size: 0.98em;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.case-body {
+  padding: 36px 40px 40px;
+}
+
+.case-section {
+  margin-bottom: 28px;
+}
+.case-section:last-of-type {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 0.75em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+.case-section ul {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.case-section li {
+  padding: 10px 12px 10px 36px;
+  background: #f8f9fe;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 0.92em;
+  line-height: 1.5;
+  position: relative;
+  transition: all 0.2s;
+}
+.case-section li:hover {
+  background: rgba(91,110,245,0.05);
+  transform: translateX(4px);
+}
+.case-section li::before {
+  content: '→';
+  position: absolute;
+  left: 12px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+/* RESULT HIGHLIGHT */
+.result-box {
+  background: var(--gradient-1);
+  color: white;
+  padding: 24px 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.05em;
+  line-height: 1.5;
+  box-shadow: 0 12px 36px rgba(91,110,245,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.case-card:nth-child(1) .result-box { background: var(--gradient-1); }
+.case-card:nth-child(2) .result-box { background: var(--gradient-2); }
+.case-card:nth-child(3) .result-box { background: var(--gradient-3); }
+.case-card:nth-child(4) .result-box { background: var(--gradient-4); }
+.case-card:nth-child(5) .result-box { background: var(--gradient-5); }
+.case-card:nth-child(6) .result-box { background: var(--gradient-6); }
+.result-box::before {
+  content: '✓';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 4em;
+  opacity: 0.15;
+  font-weight: 900;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.case-card:nth-child(1) { animation-delay: 0.1s; }
+.case-card:nth-child(2) { animation-delay: 0.15s; }
+.case-card:nth-child(3) { animation-delay: 0.2s; }
+.case-card:nth-child(4) { animation-delay: 0.25s; }
+.case-card:nth-child(5) { animation-delay: 0.3s; }
+.case-card:nth-child(6) { animation-delay: 0.35s; }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 40px 24px 50px;
+  color: var(--text-muted);
+  font-size: 0.85em;
+  border-top: 1px solid var(--border);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .marquee-grid { grid-template-columns: 1fr 1fr; }
+  .case-grid { grid-template-columns: 1fr; }
+  .header { padding: 16px 24px; }
+}
+@media (max-width: 580px) {
+  .marquee-grid { grid-template-columns: 1fr; }
+  .case-header, .case-body { padding: 28px 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <img src="moksa-logo.png" alt="MokSa Logo">
+  <div class="header-nav">
+    <a href="index.html" class="back">Back to Home</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Global Enterprise Portfolio</div>
+    <h1>CX Transformation Success Stories</h1>
+    <p>Trusted by industry leaders worldwide, we deliver large-scale Customer Experience transformation across diverse sectors.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION HEADER -->
+  <div class="section-header">
+    <span class="section-label">Our Impact</span>
+    <h2>Marquee Deployments</h2>
+    <p>MokSa Technologies has partnered with global enterprises across industries to modernize customer experience platforms and deliver measurable business outcomes.</p>
+  </div>
+
+  <!-- MARQUEE HIGHLIGHTS -->
+  <div class="marquee-grid">
+    <div class="marquee-card">
+      <div class="marquee-number">01</div>
+      <h3>Health Insurance</h3>
+      <p>End-to-end CX modernization for the world's largest provider, with cloud routing and automation.</p>
+    </div>
+    <div class="marquee-card">
+      <div class="marquee-number">02</div>
+      <h3>Private Sector Bank</h3>
+      <p>Secure, high-volume contact center deployment for India's largest bank, with advanced routing.</p>
+    </div>
+    <div class="marquee-card">
+      <div class="marquee-number">03</div>
+      <h3>Global Airlines</h3>
+      <p>Multi-region IVR, multilingual routing, and digital channels for renowned airlines.</p>
+    </div>
+    <div class="marquee-card">
+      <div class="marquee-number">04</div>
+      <h3>Tech Corporation</h3>
+      <p>Cloud migration, enterprise integrations, and global WFM for a US multinational.</p>
+    </div>
+    <div class="marquee-card">
+      <div class="marquee-number">05</div>
+      <h3>Travel & Hospitality</h3>
+      <p>AI-powered customer engagement and messaging automation for top US enterprises.</p>
+    </div>
+    <div class="marquee-card">
+      <div class="marquee-number">06</div>
+      <h3>Vacation Rental</h3>
+      <p>Large-scale Genesys Cloud implementation with automation and multi-vendor integrations.</p>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <div class="case-grid">
+
+    <!-- CASE 1 -->
+    <div class="case-card">
+      <div class="case-header">
+        <span class="case-badge">Case Study 01</span>
+        <h3>Genesys Cloud Migration</h3>
+        <p>Large-scale migration from Genesys Engage to Genesys Cloud with 24x7 managed services and complex enterprise integrations.</p>
+      </div>
+      <div class="case-body">
+        <div class="case-section">
+          <div class="section-title">Challenges</div>
+          <ul>
+            <li>24x7 Managed Services requirement</li>
+            <li>Legacy Genesys Engage environment</li>
+            <li>Complex integrations across systems</li>
+          </ul>
+        </div>
+        <div class="case-section">
+          <div class="section-title">Solution Delivered</div>
+          <ul>
+            <li>Globally distributed certified consultants</li>
+            <li>Integrated Genesys with NICE and Salesforce</li>
+            <li>Established governance and support model</li>
+          </ul>
+        </div>
+        <div class="result-box">100% SLA compliance and reduced TCO with enhanced agent productivity</div>
+      </div>
+    </div>
+
+    <!-- CASE 2 -->
+    <div class="case-card">
+      <div class="case-header">
+        <span class="case-badge">Case Study 02</span>
+        <h3>Amazon Connect – Roadside Assistance</h3>
+        <p>Modernized legacy contact center with cloud routing, CRM integration, and advanced automation.</p>
+      </div>
+      <div class="case-body">
+        <div class="case-section">
+          <div class="section-title">Challenges</div>
+          <ul>
+            <li>Legacy on-premises telephony system</li>
+            <li>No unified agent view</li>
+            <li>Higher AHT and inconsistent CX</li>
+          </ul>
+        </div>
+        <div class="case-section">
+          <div class="section-title">Solution Delivered</div>
+          <ul>
+            <li>Migrated to Amazon Connect</li>
+            <li>Advanced routing using Lambda + APIs</li>
+            <li>Customized Agent Workspace</li>
+          </ul>
+        </div>
+        <div class="result-box">Reduced AHT and 100% WFM improvement with full operational visibility</div>
+      </div>
+    </div>
+
+    <!-- CASE 3 -->
+    <div class="case-card">
+      <div class="case-header">
+        <span class="case-badge">Case Study 03</span>
+        <h3>Middle East Airline – Genesys Cloud</h3>
+        <p>Cloud migration and personalization for premium airline CX with tier-based routing.</p>
+      </div>
+      <div class="case-body">
+        <div class="case-section">
+          <div class="section-title">Challenges</div>
+          <ul>
+            <li>Inflexible IVR system</li>
+            <li>No differentiated service for priority customers</li>
+            <li>High call volumes across regions</li>
+          </ul>
+        </div>
+        <div class="case-section">
+          <div class="section-title">Solution Delivered</div>
+          <ul>
+            <li>Deployed Genesys Cloud platform</li>
+            <li>Tier-based queue prioritization</li>
+            <li>Integrated CRM for smart routing</li>
+          </ul>
+        </div>
+        <div class="result-box">Multilingual IVR with personalized routing and unified WEM platform</div>
+      </div>
+    </div>
+
+    <!-- CASE 4 -->
+    <div class="case-card">
+      <div class="case-header">
+        <span class="case-badge">Case Study 04</span>
+        <h3>UAE Flag Carrier – Amazon Connect</h3>
+        <p>Modernized IVR and routing for large airline operations with priority routing integration.</p>
+      </div>
+      <div class="case-body">
+        <div class="case-section">
+          <div class="section-title">Challenges</div>
+          <ul>
+            <li>Outdated IVR experiences</li>
+            <li>High wait times for premium customers</li>
+            <li>Lack of agent context</li>
+          </ul>
+        </div>
+        <div class="case-section">
+          <div class="section-title">Solution Delivered</div>
+          <ul>
+            <li>Redesigned call flows and IVR</li>
+            <li>Priority routing logic</li>
+            <li>Custom Agent Workspace</li>
+          </ul>
+        </div>
+        <div class="result-box">Improved CSAT and faster service recovery with scalable platform</div>
+      </div>
+    </div>
+
+    <!-- CASE 5 -->
+    <div class="case-card">
+      <div class="case-header">
+        <span class="case-badge">Case Study 05</span>
+        <h3>Global Health Insurance Modernization</h3>
+        <p>End-to-end cloud transformation with automation-driven CX for the world's largest provider.</p>
+      </div>
+      <div class="case-body">
+        <div class="case-section">
+          <div class="section-title">Challenges</div>
+          <ul>
+            <li>Fragmented global CX systems</li>
+            <li>Manual interaction handling</li>
+            <li>Limited scalability</li>
+          </ul>
+        </div>
+        <div class="case-section">
+          <div class="section-title">Solution Delivered</div>
+          <ul>
+            <li>Implemented cloud contact center</li>
+            <li>Introduced automation workflows</li>
+            <li>Standardized global routing</li>
+          </ul>
+        </div>
+        <div class="result-box">Improved agent productivity and global CX consistency</div>
+      </div>
+    </div>
+
+    <!-- CASE 6 -->
+    <div class="case-card">
+      <div class="case-header">
+        <span class="case-badge">Case Study 06</span>
+        <h3>Vacation Rental – Genesys Cloud</h3>
+        <p>Large-scale deployment with automation and enterprise integrations for a leading marketplace.</p>
+      </div>
+      <div class="case-body">
+        <div class="case-section">
+          <div class="section-title">Challenges</div>
+          <ul>
+            <li>Rapidly scaling customer operations</li>
+            <li>Multiple vendor integrations</li>
+            <li>Manual service workflows</li>
+          </ul>
+        </div>
+        <div class="case-section">
+          <div class="section-title">Solution Delivered</div>
+          <ul>
+            <li>Full Genesys Cloud implementation</li>
+            <li>Automation and workflow optimization</li>
+            <li>Integrated third-party systems</li>
+          </ul>
+        </div>
+        <div class="result-box">Streamlined operations with scalable CX platform</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2024 MokSa Technologies. All rights reserved.
+</div>
+
+</body>
+</html>
